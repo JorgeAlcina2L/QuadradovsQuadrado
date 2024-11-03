@@ -89,14 +89,11 @@ DESCRIÇÃO: um jogo onde um quadrado controlado pelo jogador ao colidir com out
                 var pegadorDireito = pegadorComponente.x + pegadorComponente.largura;
                 var pegadorTopo = pegadorComponente.y;
                 var pegadorBaixo = pegadorComponente.y + pegadorComponente.altura;
-                // Retorna verdadeiro se houver colisão, falso caso contrário
-//esses: "baixo, topo, direito e esquerdo" estão se referindo as extremidades dos quadrados do jogador 1 e do jogador 2
-// então se as extremidades do jogador1 (fugitivo) estiverem sobrepondo as extremidades do jogador2 (pegador),
-// significa que ocorreu uma colisão entre eles.
-// A função `colidirCom` usa essa lógica para verificar se qualquer extremidade do fugitivo
-// ultrapassa ou iguala as extremidades correspondentes do pegador.
-// Se nenhuma das extremidades do fugitivo estiver "fora" das do pegador (ou seja, uma sobrepõe a outra),
-// a função retorna `true` para indicar que houve colisão; caso contrário(else), retorna `false`.
+               // Retorna verdadeiro se houver colisão, falso caso contrário
+// A função verifica as extremidades do Fugitivo e do Pegador:
+// Se o Fugitivo ultrapassar as extremidades do Pegador em qualquer direção,
+// a função retorna `false` (não houve colisão). Se todas as extremidades do Fugitivo
+// estiverem dentro dos limites do Pegador, retorna `true`, indicando colisão.
                 return !(
                     fugitivoBaixo < pegadorTopo || fugitivoTopo > pegadorBaixo ||
                     fugitivoDireito < pegadorEsquerdo || fugitivoEsquerdo > pegadorDireito
